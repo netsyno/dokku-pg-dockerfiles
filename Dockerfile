@@ -15,6 +15,10 @@ RUN	LC_ALL=C DEBIAN_FRONTEND=noninteractive apt-get install -y -q postgresql-9.4
 RUN rm -rf /var/lib/apt/lists/*
 RUN apt-get clean
 
+RUN mkdir -p /var/run/postgresql/9.4-main.pg_stat_tmp
+RUN chown postgres /var/run/postgresql/9.4-main.pg_stat_tmp
+RUN chgrp postgres /var/run/postgresql/9.4-main.pg_stat_tmp
+
 # allow autostart again
 RUN	rm /usr/sbin/policy-rc.d
 
