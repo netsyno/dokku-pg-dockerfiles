@@ -10,10 +10,11 @@ RUN	echo "#!/bin/sh\nexit 101" > /usr/sbin/policy-rc.d; chmod +x /usr/sbin/polic
 # RUN apt-get update
 # RUN apt-get install -y -q wget
 # RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-# RUN apt-get update
-RUN	LC_ALL=C DEBIAN_FRONTEND=noninteractive apt-get install -y -q postgresql-9.4 postgresql-contrib-9.4
+RUN apt-get update
+RUN	LC_ALL=C DEBIAN_FRONTEND=noninteractive apt-get install -y -q postgresql-9.4 postgresql-contrib-9.4 postgresql-client-9.4
 RUN rm -rf /var/lib/apt/lists/*
 RUN apt-get clean
+RUN apt-get upgrade
 
 RUN mkdir -p /var/run/postgresql/9.4-main.pg_stat_tmp
 RUN chown postgres /var/run/postgresql/9.4-main.pg_stat_tmp
