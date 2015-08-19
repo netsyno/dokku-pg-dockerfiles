@@ -2,7 +2,7 @@
 # forked from https://github.com/kloadut/dokku-pg-dockerfiles
 
 FROM	ubuntu:vivid
-MAINTAINER	atsoy
+MAINTAINER	netsyno
 
 # prevent apt from starting postgres right after the installation
 RUN	echo "#!/bin/sh\nexit 101" > /usr/sbin/policy-rc.d; chmod +x /usr/sbin/policy-rc.d
